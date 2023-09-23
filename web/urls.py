@@ -9,5 +9,5 @@ urlpatterns = [
     path('course',views.course,name="course"),
     path('award',views.award,name="award"),
     path('switch',views.switch,name="switch"),
-    path('project/Audio8D', views.Audio8D,name='Audio8D'),
+    # path('project/Audio8D', views.Audio8D,name='Audio8D'),
 ]

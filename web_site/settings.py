@@ -86,8 +86,8 @@ DATABASES = {
         "NAME": "railway",
         "USER": "postgres",
         "PASSWORD": "mypassword",
-        "HOST": '.vercel.app',
-        "PORT": "6625",
+        "HOST": '',
+        "PORT": "",
     }
 }
 

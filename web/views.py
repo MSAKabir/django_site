@@ -99,4 +99,4 @@ def switch(request):
 #                 context['url2'] = fs.url(name2)
 #                 context['url2_m'] = name2.replace(" ", "")
 
-    return render(request, 'app1/for8D/upload.html', context)
+    # return render(request, 'app1/for8D/upload.html', context)

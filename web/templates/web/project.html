@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  {% load static %}
+  <link rel="shortcut icon" type = "image/x-icon" href = "{% static 'web/images/projects.png' %}">
+  <title>Projects</title>
+  <style type="text/css">
+
+
+    a{
+      outline: 0;
+    }
+
+        ::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(150,120,140,0.3);
+  border-radius: 10px;
+  background-color: rgb(150,140,140);
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;
+  background-color: rgb(150,140,140);
+}
+
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: rgb(50,20,20);
+}
+
+    button {
+      font-size: 20px;
+    }
+    button:hover{
+      cursor: pointer;
+    }
+
+
+
+    #myDIV, #myDIVa, #myDIVm, #myDIVmg, #all{
+      display: none;
+    }
+    #myButton1,  #myButton1a, #myButton1m,  #myButton1mg, #myButton1all{
+      display: block;
+      width:30%;
+      margin-top: 1%;
+      margin-bottom: 1%;
+      color: rgb(0,50,0);
+      border: 3px solid rgb(0,50,0);
+      padding: 0.5%;
+      border-radius: 5px;
+      background-color: rgba(223,255,246,1);
+      margin-left: 35%;
+    }
+    #myButton2, #myButton2a, #myButton2m, #myButton2mg, #myButton2all{
+      display: none;
+      width:30%;
+      margin-top: 1%;
+      margin-bottom: 1%;
+      color: rgb(0,50,0);;
+      border: 3px solid rgb(0,50,0);
+      padding: 0.5%;
+      border-radius: 5px;
+      background-color: rgba(223,255,246,1);
+      margin-left: 35%;
+    }
+    #myButton1a, #myButton1m,  #myButton1mg, #myButton2a, #myButton2m,  #myButton2mg{
+     width:auto;
+     margin-left: 0%;
+     border: 2px solid rgb(56,0,0);
+   }
+   .fa{
+    color: rgb(0,50,0);
+  }
+  body {
+    margin: 0;
+    font-family: Times New Roman;
+    background-color: rgba(223,255,246,1);
+    font-size: 20px;
+  }
+
+  body::after {
+    content: "";
+    background: url({% static 'web/images/aust.jpg' %});
+    background-size: cover;
+    opacity: 0.02;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+
+  #navbar{
+    z-index: 1
+  }
+
+  #navbar a {
+    display: block;
+    text-align: center;
+    /*float:left;*/
+    padding: 10px 10px;
+    text-decoration: none;
+    background-image: linear-gradient(to right, rgb(50,50,50), rgb(20,20,20));
+    color: rgb(200,200,200);
+    border:3px solid rgb(200,200,200);
+    border-radius: 20px 25px;
+  }
+
+  #navbar a:hover {
+    background-image: linear-gradient(to right, #EDFFFD, #FFFFFF);
+    color: #514804;
+    border:3px solid #514804;
+  }
+
+  #navbar .active a{
+    background-image: linear-gradient(to right, rgb(150,150,150), rgb(220,220,220));
+    color: #475B5B;
+    border:3px solid #475B5B;
+    animation: act 1s ease-in-out infinite;
+ animation-direction: alternate;
+  }
+@keyframes act{
+  from{ background-image: linear-gradient(to right, rgb(150,150,150), rgb(220,220,220));}
+
+  to{ background-image: linear-gradient(to right, rgb(160,160,150), rgb(230,230,220));}
+      
+      }
+  #switch a{
+    background-image: linear-gradient(to right, rgb(50,50,50), rgb(0,0,0));
+    color: rgb(150,150,200);
+    border:3px solid rgb(150,150,200);
+  }
+  #switch a:hover {
+    background-image: linear-gradient(to right, #FFFFFF, #DAF5FE);
+    color: rgb(0,0,200);
+    border:3px solid rgb(0,0,200);
+  }
+
+
+  .content {
+    padding: 16px;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .sticky + .content {
+    padding-top: 60px;
+  }
+
+  .row {
+    display: flex;
+    padding-top: 10px;
+  }
+
+  /* Create two equal columns that sits next to each other */
+  .column1 {
+    flex: 25%;
+    padding: 10px;
+    height: 250px; /* Should be removed. Only for demonstration */
+  }
+
+  .column2 {
+    flex: 70%;
+    padding: 10px;
+    height: 250px; /* Should be removed. Only for demonstration */
+  }
+
+
+  .pro a{
+    color:rgb(80,80,120);
+  }
+
+  .pro a:visited{
+    color:rgb(80,80,120);
+  }
+
+
+  img, iframe {
+    float: left;
+    /* width: 190px; */
+    height: 200px;
+    opacity: 0.5;
+  }
+
+
+  #links{
+    overflow: hidden;
+  }
+
+  #links a{
+    border: 0px solid white;
+    color: rgb(40,0,0);
+    background-image: linear-gradient(to right, rgb(241, 239, 195), rgb(160, 157, 107));
+    text-align: center;
+    float: left;
+    margin: 5px 2px;
+    padding: 10px 10px;
+    border-radius: 10px;
+  }
+  #links a:hover{
+    border: 0px solid white;
+    color: rgb(30, 60, 35);
+    background-image: linear-gradient(to right, rgb(254, 255, 212  ), rgb(252, 255, 170   ));
+
+  }
+
+
+
+  .container_projects15 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .container_projects15 > div {
+    margin: 1%;
+    padding: 0%;
+    
+    text-align: center;
+  }
+
+
+
+
+  #p15{
+    background: rgb(0,20,0);
+    padding: 1% 5%;
+    margin: 0 1%;
+    border-radius: 20px;
+    width: 340px;
+    height: 300px;
+  }
+
+
+  #tu{
+    width: 0;
+    height: 0;
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+    border-bottom: 50px solid rgb(0,20,0);
+    border-radius: 20px;
+  }
+  #td{
+    width: 0;
+    height: 0;
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+    border-top: 50px solid rgb(0,20,0);
+    border-radius: 20px;
+  }
+
+
+ #p15 a{
+  color: rgb(200,200,150);
+ }
+  #p15 a:visited{
+  color: rgb(200,200,150);
+ }
+ 
+
+
+  #p15 img, iframe{
+   width: 100%;
+   height: 200px;
+   padding-bottom: 2%;
+ }
+
+ #p16{
+   padding-top: 5%;
+ }
+ 
+ #joiner{
+  opacity:0.5;
+  transition: 2s;
+}
+
+#joiner:hover{
+  opacity:2;
+}
+#p15 img,#p15 iframe {
+  transition: 1s;
+  align-items: center;
+}
+
+#imrotor{
+  transition: 1s;
+}
+#imrotor:hover{
+  transform: rotateY(180deg);
+}
+#p15 img:hover,#p15 iframe:hover{
+  transform: rotateY(-180deg);
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 992px) {
+
+      .navbar.navbar-expand-lg.navbar-dark{
+      max-height: 200px!important;
+      overflow-y: auto!important;
+    }
+
+   
+
+   .column1 img{
+      width: 80%;
+      height:60%;
+    }
+
+  .column1 {
+    flex: 25%;
+    padding: 5px;
+    height: 160px; /* Should be removed. Only for demonstration */
+  }
+
+  .column2 {
+    flex: 70%;
+    padding: 5px;
+    height: 160px; /* Should be removed. Only for demonstration */
+  }
+
+  body{
+    font-size: 11px;
+  }
+  button {
+    font-size: 11px;
+  }
+  #navbar a {
+
+    padding: 5px 5px;
+    border-radius: 12px 15px;
+
+  }
+
+  
+  h1 {
+    font-size: 15px;
+  }
+  h2 {
+    font-size: 13.5px;
+  }
+  h3 {
+    font-size: 12px;
+  }
+  h4 {
+    font-size: 10.5px;
+  }
+  h5 {
+    font-size: 9px;
+  }
+  h6 {
+    font-size: 8px;
+  }
+
+  #myButton1,#myButton2{
+    margin-left: 20%;
+  }
+
+  #myButton1all,#myButton2all{
+    width: 60%;
+    margin:0 auto;
+    margin-bottom: 20px;margin-top: 20px;
+  }
+
+  #links a{
+
+    margin: 3px 1px;
+    padding: 5px 5px;
+    border-radius: 5px;
+  }
+
+  #p15{
+    width: 300px;
+    height: 250px;
+    margin-left: 0%;
+  }
+    #tu{
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 40px solid rgb(0,20,0);
+  }
+  #td{
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 40px solid rgb(0,20,0);
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+   
+  .column1 {
+
+    height: 140px; /* Should be removed. Only for demonstration */
+  }
+
+  .column2 {
+
+    height: 140px; /* Should be removed. Only for demonstration */
+  }
+ }
+
+@media screen and (max-width: 575px) {
+   
+     .column1 img{
+      width: 80%;
+      height:60%;
+      padding-left: 10%;
+    }
+  .column1 {
+
+    height: 110px; /* Should be removed. Only for demonstration */
+  }
+
+  .column2 {
+
+    height: 110px; /* Should be removed. Only for demonstration */
+  }
+ }
+
+</style>
+
+</head>
+<body style = "color: rgb(0,50,0);">
+
+  <div class ="container">
+    <div class="row">
+      <div class="column1">
+        <p><img src="{% static 'web/images/dpp3.gif' %}"></p>
+      </div>
+      <div class="column2" >
+        <h1>Md Shaikh Abrar Kabir</h1>
+        <h4><i class="fa fa-briefcase" style='color: rgb(0,50,0)'></i>&nbsp
+        Lecturer - Dept. of EEE - AUST, Dhaka, Bangladesh</h4>
+        <h4><i class="fa fa-graduation-cap" style='color: rgb(0,50,0)'></i>&nbsp
+        M.Sc. in EEE - AUST, Dhaka, Bangladesh</h4>
+        <h4><i class="fa fa-graduation-cap" style='color: rgb(0,50,0)'></i>&nbsp
+        B.Sc. in EEE - AUST, Dhaka, Bangladesh</h4>
+      </div>
+    </div>
+  </div>
+
+<nav id = "navbar" class="navbar navbar-expand-lg navbar-dark" style="background-image: linear-gradient(to right, rgb(0,20,0), rgb(0,50,0));" >
+
+
+
+
+  <div id = "links" >
+
+    <a  href="tel:+8801680504253" style="" class="fa fa-phone" target="_blank"></a>
+  
+    <a  href="skype:live:shaikhak707?chat" style="" class="fa fa-skype" target="_blank"></a>
+  
+    <a  href="mailto:shaikhak101@gmail.com" style="" class=" fa fa-envelope" target="_blank"></a>
+  
+    <a  href="https://github.com/Shaikh-Abrar-Kabir" style="" class=" fa fa-github" target="_blank"></a>
+  
+    <a  href="https://www.linkedin.com/in/md-shaikh-abrar-kabir-a71a67194/" style="" class=" fa fa-linkedin-square" target="_blank"></a>
+  
+    <a  href="https://www.researchgate.net/profile/Md_Kabir15" style="" class="fa fa-pencil-square" target="_blank"></a>
+  
+    <a  href="https://www.facebook.com/shaikhabrar.kabir" style="" class="fa fa-facebook-f" target="_blank"></a>
+  
+  </div>
+
+
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url '' %}">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'research' %}">Research</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'project' %}">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'skill' %}">Skills</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'course' %}">Courses</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'award' %}">Awards</a>
+      </li>
+
+      <li class="nav-item" id = "switch">
+        <a class = "nav-link" href="{% url 'switch' %}" target="_blank">Switch</a>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>
+<section class = "content">
+  <div class = "container">
+
+
+
+    <div class = "pro">
+
+      <h1 style="margin-left: 1%"><u>Projects</u></h1>
+
+
+
+
+
+      <div class="container_projects15">
+
+
+
+
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+
+
+<div id="p15">
+<div id="p16">
+
+<div id="imrotor"> 
+<center>  
+  <a href="https://docs.google.com/spreadsheets/d/1OShU-gLe9Okhmu0oJ7VX_dtzlOHDnckIMliySZpTGeE/edit#gid=2049292039"  target="_blank">
+  <iframe style="border: 0em solid rgba(0,0,0,0)"  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR7xsTzvooqVdO_eaWpDyKDbY8QOTxuZ6tj3SgCVxZTXDKXUYejXV9JU4Y7y6Dvlns_yb1xebTNqe7b/pubhtml?widget=true&amp;
+  headers=false"></iframe>
+</center>
+</div>
+
+<p><center><h4>Routine Automation</h4></center></p></a>
+</div>
+</div>
+
+
+
+<div id="td"></div>
+
+</div>
+
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+
+
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/Chess/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p1.jpg' %}" style="">
+</center> </div><p><center><h4>Chess (MATLAB)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/BER-Analyzer/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p2.jpg' %}" style="">
+</center> </div><p><center><h4>BER Analyzer (MATLAB GUI)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/AudioExcel/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p3.png' %}" style="">
+</center> </div><p><center><h4>Excel Editor using Speech Recognition (Python GUI)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+
+
+
+
+
+<div id="joiner"  data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/flutter/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p4a.JPG' %}" style="">
+</center> </div><p><center><h4>BER Analyzer (Android Studio Flutter)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+
+
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/Age-Counter-with-Bangla-English-Calendar/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p5.jpg' %}" style="">
+</center> </div><p><center><h4>Age Counter with Bangla & English Calendar (MATLAB GUI)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/wifi_pass/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p6a.JPG' %}" style="">
+</center> </div><p><center><h4>Wifi Password Cracker (Python GUI)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+
+
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/Audio_8D_web/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p7.png' %}" style="">
+</center> </div><p><center><h4>8D Audio Converter (Python Django)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/Audio_8D_pc/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p8.png' %}" style="">
+</center> </div><p><center><h4>8D Audio Converter (Python GUI)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/Audio-Mixer-with-Frequency-Converter/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p9.jpg' %}" style="">
+</center> </div><p><center><h4>Audio Mixer with Frequency Converter (MATLAB GUI)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+
+
+
+
+
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/jscalendarrun/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p10.jpg' %}" style="">
+</center> </div><p><center><h4>Age Counter (JS, HTML,CSS)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/Age-Counter-Php/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p11.png' %}" style="">
+</center> </div><p><center><h4>Age Counter (PHP,HTML,CSS)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/android/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p12a.JPG' %}" style="">
+</center> </div><p><center><h4>CGPA Calculator (Android Studio)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+
+
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/jframe/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p13a.JPG' %}" style="">
+</center> </div><p><center><h4>CGPA Calculator (Swing JFrame)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/Sentence-Detector-for-Triphone-Model/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p14.jpg' %}" style="">
+</center> </div><p><center><h4>Sentence Detector for Triphone Model (MATLAB GUI)</h4></center> </p>
+</a>
+</div>
+
+<div id="td"></div>
+
+</div>
+
+<div id="joiner" data-aos="fade-up-left" data-aos-offset="50">
+
+<div id="tu"></div>
+
+<div id="p15">
+
+<a href="https://shaikh-abrar-kabir.github.io/4-in-a-row/"  target="_blank">
+<div id="imrotor"> <center>  <img src="{% static 'web/images/projects/p15.jpg' %}" style="">
+</center> </div><p><center><h4>4 in a Row (MATLAB)</h4></center> </p>
+</a>
+</div>
+<div id="td"></div>
+
+</div>
+
+
+    </div>
+
+
+
+
+    <div id="scrollerall" ><br><br><br></div>
+
+    <a href="#scrollerall" style="text-decoration: none;">
+      <button onclick="change1all()"  id="myButton1all">Show All Projects  <i class="fa fa-arrow-circle-down"></i></button>
+    </a>
+    <button onclick="change2all()"  id="myButton2all">Hide Section  <i class="fa fa-arrow-circle-up"></i></button>
+
+
+    <div id="all" >
+
+      <ul>
+
+
+     <li><h2>Website</h2>
+
+         <ul>
+
+              <li><h4><a href="https://msakabir.github.io/CourseSite/" target="_blank">Course Site</a></h4></li>
+
+              <li><h4><a href="https://msakabir.github.io/formal/" target="_blank">Formal</a></h4></li>
+
+              <li><h4><a href="https://msakabir.github.io/casual/" target="_blank">Casual</a></h4></li>
+
+              <li><h4><a href="https://msakabir.herokuapp.com" target="_blank">using Python (Django)</a></h4></li>
+
+         </ul>
+
+       </li>
+
+
+
+       <li><h2>Hardware</h2>
+
+         <ul>
+
+           <li><h4><a href="https://shaikh-abrar-kabir.github.io/Digital-Clock/" target="_blank">Digital Clock using Arduino</a></h4></li>
+
+           <li><h4><a href="https://drive.google.com/open?id=1adOpV8M7rNYZHln9kNci0T1Oz2kAEaUr" target="_blank">Surge Protector</a></h4></li>
+
+         </ul>
+
+       </li>
+
+
+       <li><h2>Software</h2>
+
+
+
+
+        <ul>
+
+
+          <li><h3>BER Analyzer </h3>
+
+            <ul>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/BER-Analyzer/" target="_blank">MATLAB GUI</a></h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/flutter/" target="_blank">Android Studio (Flutter)</a></h4></li>
+
+
+
+            </ul>
+          </li>
+
+
+          <li><h3>MATLAB GUI Based Applications</h3>
+
+            <ul>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Age-Counter-with-Bangla-English-Calendar/" target="_blank">Age Counter with Bangla & English Calendar</a></h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Audio-Mixer-with-Frequency-Converter/" target="_blank">Audio Mixer with Frequency Converter</a></h4></li>
+
+
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Sentence-Detector-for-Triphone-Model/" target="_blank">Sentence Detector for Triphone Model</a></h4></li>
+
+              <button onclick="change1mg()"  id="myButton1mg">More in MATLAB GUI <i class="fa fa-arrow-circle-down"></i></button>
+              <button onclick="change2mg()"  id="myButton2mg">Hide Extra of MATLAB GUI <i class="fa fa-arrow-circle-up"></i></button>
+              <div id="myDIVmg"> 
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/Sentence-Detector-for-Monophone-Model/" target="_blank">Sentence Detector for Monophone Model</a></h4></li>
+
+
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/Audio-Recorder/" target="_blank">Audio Recorder</a></h4></li>
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/Alarm-Clock/" target="_blank">Digital Alarm Clock</a></h4></li>
+
+
+
+              </div>
+
+            </ul>
+
+          </li>
+
+
+          <li><h3>MATLAB</h3>
+
+            <ul>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Chess/" target="_blank">Chess</a></h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Snakes-and-Ladders/" target="_blank">Snakes and Ladders (with cheatcode)</a></h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/4-in-a-row/" target="_blank">4 in a Row</a></h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Grade-Counter-for-AUST/" target="_blank">Grade Counter for AUST</a></h4></li>
+
+
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Convert-Audio-to-8D/" target="_blank">8D Audio Converter</a></h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Video-Maker-Using-Audio-and-JPEG-PNG/" target="_blank">Video Maker using Audio and JPEG/PNG</a></h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/GIF-to-Video-Converter/" target="_blank">Video Maker using Audio and GIF</a></h4></li>
+
+              <button onclick="change1m()"  id="myButton1m">More in MATLAB <i class="fa fa-arrow-circle-down"></i></button>
+              <button onclick="change2m()"  id="myButton2m">Hide Extra of MATLAB <i class="fa fa-arrow-circle-up"></i></button>
+              <div id="myDIVm">
+
+
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/Video-Cutter/" target="_blank">Video Cutter</a></h4></li>
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/Video-to-GIF-Converter/" target="_blank">Video to GIF Converter</a></h4></li>
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/JPEG-PNG-to-GIF-Converter/" target="_blank">JPEG/PNG to GIF Converter </a></h4></li>
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/GIF-Editor/" target="_blank">GIF Editor</a></h4></li>
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/Video-to-PDF-Converter/" target="_blank">Video to PDF Converter</a></h4></li>
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/JPEG-PNG-to-PDF-Converter/" target="_blank">JPEG/PNG to PDF Converter</a></h4></li>
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/GIF-to-PDF-Converter/" target="_blank">GIF to PDF Converter</a></h4></li>
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/Frequency-Converter/" target="_blank">Frequency Converter</a></h4></li>
+
+              </div>
+
+            </ul>
+
+
+          </li>
+
+
+          <li><h3>Python</h3>
+
+            <ul>
+
+
+
+             <li><h4><a href="https://shaikh-abrar-kabir.github.io/wifi_pass/" target="_blank">Wifi Password Cracker (GUI)</a><h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Audio_8D_pc/" target="_blank">8D Audio Converter (GUI)</a></h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Audio_8D_web/" target="_blank">8D Audio Converter (web)</a></h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/AudioExcel/" target="_blank">Excel Editor using Speech Recognition (GUI)</a></h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Digital-Signal-Processing-using-Python/" target="_blank">Digital Signal Processing</a></h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Audio-Cutter/" target="_blank">Audio Cutter</a></h4></li>
+
+
+            </ul>
+
+
+          </li>
+
+
+
+
+          <li><h3>Age Counter with Calendar (following programming languages used)</h3>
+
+            <ul>
+
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Age-Counter-C/" target="_blank">JS, HTML, CSS </a> <a href="https://shaikh-abrar-kabir.github.io/jscalendarrun/" target="_blank" style="color: rgb(0,1,40);">&nbsp(run)</a>  </h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Age-Counter-Php/" target="_blank">PHP, HTML, CSS</a>
+              </h4></li>
+
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Age-Counter/" target="_blank">MATLAB</a>
+              </h4></li>
+
+
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Age-Counter-Python/" target="_blank">Python</a>
+              </h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Age-Counter-JAVA/" target="_blank">Java</a></h4></li>
+
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Age-Counter-Js/" target="_blank">C</a>
+              </h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Age-Counter-Cpp/" target="_blank">C++</a>
+              </h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Age-Counter-C-/" target="_blank">C#</a>
+              </h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Age-Counter-Go/" target="_blank">Go</a>
+              </h4></li>
+
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/Age-Counter-R/" target="_blank">R</a>
+              </h4></li>
+
+
+
+
+            </ul>
+
+          </li>
+
+
+
+
+          <div id = "scroller"> </div>
+        <!--   <li><h3>Web Development using JS, HTML, CSS</h3>
+
+            <ul>
+
+              <li><h4><a href="https://msakabir.github.io/CourseSite/" target="_blank">Course Site</a></h4></li>
+
+              <li><h4><a href="https://msakabir.github.io/formal/" target="_blank">Formal</a></h4></li>
+
+              <li><h4><a href="https://msakabir.github.io/casual/" target="_blank">Casual</a></h4></li>
+
+              <li><h4><a href="https://msakabir.herokuapp.com" target="_blank">using Python (Django)</a></h4></li>
+
+            </ul>
+
+          </li> -->
+
+
+
+
+
+
+          <li><h3>CGPA Calculator</h3>
+
+            <ul>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/android/" target="_blank">Android Studio</a></h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/jframe/" target="_blank">Swing JFrame</a></h4></li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/tkinter/" target="_blank">Python GUI</a></h4></li>
+
+            </ul>
+
+
+          </li>
+
+
+          <li><h4><a href="https://drive.google.com/open?id=1f298C4ECeTXkDB0qaHkNbjGTMQjL4sOl" target="_blank">Automatic Slot Switching using Proteus</a></h4></li>
+
+          <li><h4><a href="https://shaikh-abrar-kabir.github.io/Rectifier/" target="_blank">230V(p) AC to 15V DC converter using PSpice</a></h4></li>
+
+          <a href="#scroller" style="text-decoration: none;">
+            <button onclick="change1()"  id="myButton1">More <i class="fa fa-arrow-circle-down"></i></button>
+          </a>
+
+          <button onclick="change2()"  id="myButton2">Hide <i class="fa fa-arrow-circle-up"></i></button>
+
+          <div id="myDIV">
+            <li><h3>Cadence</h3>
+              <ul>
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/4-Bit-Adder/" target="_blank">4 Bit Full Adder</a>
+                </h4></li>
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/4-Bit-Ring-Counter/" target="_blank">4 Bit Ring Counter</a>
+                </h4></li>
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/4-Bit-Johnson-Counter/" target="_blank">4 Bit Johnson Counter</a>
+                </h4></li>
+
+                <li><h4><a href="https://shaikh-abrar-kabir.github.io/Write-and-Read-Memory/" target="_blank">4 Bit Write and Read Memory</a>
+                </h4></li>
+
+              </ul>
+
+            </li>
+
+
+
+            <li><h3>AutoCAD (2D)</h3>
+
+              <ul>
+
+                <li><h4>Electrical & Electronic</h4>
+
+                 <ul style="list-style-type: lower-roman;">
+
+                  <li><h5><a href="https://shaikh-abrar-kabir.github.io/Electrical--Electronic-Symbols/" target="_blank">Electrical & Electronic Symbols</a></h5></li>
+
+                  <li><h5><a href="https://shaikh-abrar-kabir.github.io/Wiring-a-500-sq-ft-Flat-with-Circuit-Diagram/" target="_blank">Wiring a Flat with Circuit Diagram</a></h5></li>
+
+                  <li><h5><a href="https://shaikh-abrar-kabir.github.io/500-kv-Steel-Self-Supporting-Transmission-Tower/" target="_blank">500-kv Steel Self-Supporting Transmission Tower</a></h5></li>
+
+                  <button onclick="change1a()"  id="myButton1a">More in AutoCAD (2D) <i class="fa fa-arrow-circle-down"></i></button>
+                  <button onclick="change2a()"  id="myButton2a">Hide Extra of AutoCAD (2D) <i class="fa fa-arrow-circle-up"></i></button>
+                  <div id="myDIVa">
+
+                    <li><h5><a href="https://shaikh-abrar-kabir.github.io/Schemaic-Diagram-of-Transformer-and-Three-Phase-Connections/" target="_blank">Schemaic Diagram of Transformer and Three Phase Connections</a></h5></li>
+
+                    <li><h5><a href="https://shaikh-abrar-kabir.github.io/Rotary-Converter-and-Full-Wave-Bridge-Rectifier/" target="_blank">Rotary Converter and Full-Wave Bridge Rectifier</a></h5></li>
+
+                    <li><h5><a href="https://shaikh-abrar-kabir.github.io/Electrical-Duct-Banks-and-3-Phase-4-Wire-Loadcenter/" target="_blank">Electrical Duct Banks and 3-Phase 4-Wire Loadcenter</a></h5></li>
+
+                    <li><h5><a href="https://shaikh-abrar-kabir.github.io/Surge-Protector/" target="_blank">Surge Protector</a></h5></li>
+
+                    <li><h5><a href="https://shaikh-abrar-kabir.github.io/2-km-FM-Transmitter/" target="_blank">2 km FM Transmitter</a></h5></li>
+
+                    <li><h5><a href="https://shaikh-abrar-kabir.github.io/Automatic-Light-Controller/" target="_blank">Automatic Light Controller</a></h5></li>
+
+                  </div>
+
+                </ul>
+
+
+              </li>
+
+              <li><h4><a href="https://shaikh-abrar-kabir.github.io/AutoCAD-2D/" target="_blank">Side View of Some Vehicles </a></h4>
+
+                <ul  style="list-style-type: lower-roman;">
+
+                  <li><h5>Ferrari 458 Spider</h5></li>
+
+                  <li><h5>Ghost Rider</h5></li>
+
+                  <li><h5>Ford</h5></li>
+
+                  <li><h5>Boeing 777 (Qatar Airlines)</h5></li>
+
+                </ul>
+
+
+              </li>
+            </ul>
+          </li>
+
+          <li><h4>AutoCAD (3D)</h4>
+
+           <ul>
+             <li><h4><a href="https://shaikh-abrar-kabir.github.io/3D-Room/" target="_blank">Designing and Capturing Video of Room</a></h4></li>
+           </ul>
+         </li>
+
+
+
+
+
+
+
+
+
+         <li><h3><a href="https://drive.google.com/open?id=13T1kb-Wc_CIYf4ca5hpg3UkBRmkl9afp" target="_blank">Quartus (Verilog HDL)</a></h3>
+
+          <ul>
+
+            <li><h4>
+              4:1 Mux (simple & using 2:1 mux), 16:1 Mux using 4:1 Mux
+            </h4></li>
+
+            <li><h4>
+              1 Digit BCD Adder
+            </h4></li>
+
+            <li><h4>
+              4 bit Comparator, Full Adder, Up-Down Counter
+            </h4></li>
+
+            <li><h4>
+              7 Segment Decoder
+            </h4></li>
+
+            <li><h4>
+              Universal Shift Register
+            </h4></li>
+
+            <li><h4>
+              JK Flip-Flop using D Flip-Flop, T Flip-Flop using JK Filp-Flop
+            </h4></li>
+
+          </ul>
+
+        </li>
+
+
+
+      </ul>
+
+    </li>
+
+  </ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script>
+
+ AOS.init(
+ {
+  delay: 200
+});
+
+ window.onscroll = function() {myFunction()};
+
+ var navbar = document.getElementById("navbar");
+ var sticky = navbar.offsetTop;
+
+ function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+
+
+function change1all()
+{
+  var elem1 = document.getElementById("myButton1all");
+  var elem2 = document.getElementById("myButton2all");
+  var x = document.getElementById("all");
+  elem1.style.display = "none";
+  elem2.style.display = "block";
+  x.style.display = "block";   
+}
+
+function change2all()
+{
+  var elem1 = document.getElementById("myButton1all");
+  var elem2 = document.getElementById("myButton2all");
+  var x = document.getElementById("all");
+  elem2.style.display = "none";
+  elem1.style.display = "block";
+  x.style.display = "none";
+
+}
+
+
+
+function change1()
+{
+  var elem1 = document.getElementById("myButton1");
+  var elem2 = document.getElementById("myButton2");
+  var x = document.getElementById("myDIV");
+  elem1.style.display = "none";
+  elem2.style.display = "block";
+  x.style.display = "block";   
+}
+function change2()
+{
+  var elem1 = document.getElementById("myButton1");
+  var elem2 = document.getElementById("myButton2");
+  var x = document.getElementById("myDIV");
+  elem2.style.display = "none";
+  elem1.style.display = "block";
+  x.style.display = "none";
+
+}
+function change1m()
+{
+  var elem1 = document.getElementById("myButton1m");
+  var elem2 = document.getElementById("myButton2m");
+  var x = document.getElementById("myDIVm");
+  elem1.style.display = "none";
+  elem2.style.display = "block";
+  x.style.display = "block";   
+}
+function change2m()
+{
+  var elem1 = document.getElementById("myButton1m");
+  var elem2 = document.getElementById("myButton2m");
+  var x = document.getElementById("myDIVm");
+  elem2.style.display = "none";
+  elem1.style.display = "block";
+  x.style.display = "none";
+
+}
+function change1mg()
+{
+  var elem1 = document.getElementById("myButton1mg");
+  var elem2 = document.getElementById("myButton2mg");
+  var x = document.getElementById("myDIVmg");
+  elem1.style.display = "none";
+  elem2.style.display = "block";
+  x.style.display = "block";   
+}
+function change2mg()
+{
+  var elem1 = document.getElementById("myButton1mg");
+  var elem2 = document.getElementById("myButton2mg");
+  var x = document.getElementById("myDIVmg");
+  elem2.style.display = "none";
+  elem1.style.display = "block";
+  x.style.display = "none";
+
+}
+
+function change1a()
+{
+  var elem1 = document.getElementById("myButton1a");
+  var elem2 = document.getElementById("myButton2a");
+  var x = document.getElementById("myDIVa");
+  elem1.style.display = "none";
+  elem2.style.display = "block";
+  x.style.display = "block";   
+}
+function change2a()
+{
+  var elem1 = document.getElementById("myButton1a");
+  var elem2 = document.getElementById("myButton2a");
+  var x = document.getElementById("myDIVa");
+  elem2.style.display = "none";
+  elem1.style.display = "block";
+  x.style.display = "none";
+
+}
+
+
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<style type="text/css">
+	
+.flip {
+    backface-visibility: hidden;
+    border: 1px solid black;
+    height: 150px;
+    position: absolute;
+    transform-origin: 50% 50% 0px;
+    transition: all 1s;
+    width: 300px;    
+}
+
+#side-1 {
+    transform: rotateY( 0deg );
+}
+
+#side-2 {
+    transform: rotateY( 180deg );   
+}
+
+.flip-side-1 {    
+    transform: rotateY( 0deg ) !important;
+}
+
+.flip-side-2 {
+    transform: rotateY( 180deg ) !important;
+}
+
+
+
+</style>
+
+
+
+
+</head>
+<body>
+
+    <div id="side-1" class="flip">
+
+    <a id="signup" href="#">sign up</a>
+
+    </div>
+
+
+    <div id="side-2" class="flip">
+    <a id="create" href="#">create</a>
+    </div>
+
+
+<script type="text/javascript">
+	
+
+document.getElementById( 'signup' ).addEventListener( 'click', function( event ) {
+
+    event.preventDefault();
+    document.getElementById( 'side-2' ).className = 'flip flip-side-1';
+    document.getElementById( 'side-1' ).className = 'flip flip-side-2';
+
+}, );
+
+
+
+</script>
+</body>
+</html>

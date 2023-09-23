@@ -86,7 +86,7 @@ DATABASES = {
         "NAME": "railway",
         "USER": "postgres",
         "PASSWORD": "mypassword",
-        "HOST": "containers-us-west-196.railway.app",
+        "HOST": '.vercel.app',
         "PORT": "6625",
     }
 }
